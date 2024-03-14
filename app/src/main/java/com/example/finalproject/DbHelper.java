@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -45,6 +46,10 @@ public class DbHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_USER_EMAIL, userModel.getEmail());
         cv.put(COLUMN_USER_PASSWORD, userModel.getPassword());
 
+        System.out.println(userModel.getName());
+        System.out.println(userModel.getEmail());
+        System.out.println(userModel.getPassword());
+
         long insert = db.insert(USER_TABLE, null , cv);
         if (insert == -1){
             return false;
@@ -54,5 +59,25 @@ public class DbHelper extends SQLiteOpenHelper {
         }
 
 
+    }
+
+    public static boolean login(String username, String password) {
+
+        Cursor cursor = null;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("username", username);
+        cv.put("password", password);
+
+        System.out.println(username);
+        System.out.println(password);
+        
+        System.out.println("//////////////////////////");
+        System.out.println(cursor.getCount());
+        if (cursor.getCount()>0){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
