@@ -13,4 +13,8 @@
     <string name="LoginPassword">Enter password</string>
     <string name="PasswordSquared">"Re-enter password "</string>
     <string name="PlacePassword">Re-enter password</string>
+    <string name="AddItem">Add a task</string>
+    <string name="EnterPass">"Re-enter password "</string>
+    <string name="EnterPassword1">"Re-enter password "</string>
+    <string name="ReenterPass">Re enter password</string>
 </resources>

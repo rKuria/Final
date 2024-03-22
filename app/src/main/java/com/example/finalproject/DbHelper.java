@@ -64,7 +64,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public static boolean login(String username, String password) {
 
         Cursor cursor = null;
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("username", username);
         cv.put("password", password);

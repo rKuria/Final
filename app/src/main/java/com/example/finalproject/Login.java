@@ -33,9 +33,9 @@ public class Login extends AppCompatActivity {
 
         //button onClick listeners
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //button2.setOnClickListener(new View.OnClickListener() {
+           // @Override
+            //public void onClick(View view) {
                 String username = login_uname.getText().toString();
                 String password = login_password.getText().toString();
 
@@ -51,9 +51,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "User not found", Toast.LENGTH_SHORT).show();
                 }
 
-            }
-        }){
-
-        }
+            //})
+        //})
     }
 }

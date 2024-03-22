@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TodoPage">
+
+    <ImageView
+        android:id="@+id/mini_person"
+        android:layout_width="55dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_person_outline_24" />
+
+    <TextView
+        android:id="@+id/date_header"
+        android:layout_width="158dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/alike_angular"
+        android:text="Today"
+        android:textSize="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mini_person" />
+
+    <TextView
+        android:id="@+id/todo"
+        android:layout_width="104dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="serif"
+        android:text="To-Dos"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_header" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="381dp"
+        android:layout_height="256dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo" />
+
+    <Button
+        android:id="@+id/list_button"
+        android:layout_width="146dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Add Item"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listview" />
+
+    <EditText
+        android:id="@+id/add_item"
+        android:layout_width="219dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="@string/AddItem"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/list_button"
+        app:layout_constraintTop_toTopOf="@+id/list_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

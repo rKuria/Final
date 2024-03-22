@@ -43,19 +43,23 @@ public class SignUp extends AppCompatActivity {
                     userModel = new UserModel(-1, "error", "none", "none"); //default values if error
                 }
 
+
                 openOptionsPage();
+
 
                 DbHelper dbHelper = new DbHelper(SignUp.this );
 
                 boolean success = dbHelper.addOne(userModel);
                 Toast.makeText(SignUp.this, "Success!"+ success, Toast.LENGTH_SHORT).show();
+
+
             }
         });
 
     }
-
-    public void openOptionsPage() {
-        Intent intent = new Intent(this, OptionsPage.class);
+     public void openOptionsPage() {
+        Intent intent = new Intent(this, TodoPage.class);
         startActivity(intent);
     }
+
 }
