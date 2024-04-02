@@ -17,4 +17,6 @@
     <string name="EnterPass">"Re-enter password "</string>
     <string name="EnterPassword1">"Re-enter password "</string>
     <string name="ReenterPass">Re enter password</string>
+    <string name="MedName">Enter name of medication</string>
+    <string name="Frequency">How many times a day</string>
 </resources>

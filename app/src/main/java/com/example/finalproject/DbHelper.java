@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class DbHelper extends SQLiteOpenHelper {
 
     public static final String USER_TABLE = "USER_TABLE";
@@ -71,7 +73,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         System.out.println(username);
         System.out.println(password);
-        
+
         System.out.println("//////////////////////////");
         System.out.println(cursor.getCount());
         if (cursor.getCount()>0){
@@ -79,5 +81,34 @@ public class DbHelper extends SQLiteOpenHelper {
         } else {
             return false;
         }
+    }
+
+    public ArrayList<String> getAllUsers(){
+        ArrayList<String> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        //String query = "SELECT " + COLUMN_USER_NAME + " " + COLUMN_USER_EMAIL + "" + USER_TABLE;
+        String query = "SELECT * FROM "+ USER_TABLE;
+        Cursor cursor = db.rawQuery(query, new String[]{});
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                String name = cursor.getString(1);
+                String email = cursor.getString(2);
+
+                String data = "User data: " + name + "\n email: " + email;
+
+                arrayList.add(data);
+            }
+            while (cursor.moveToNext());
+        }
+        else {
+            return null;
+
+        }
+
+        cursor.close();
+        db.close();
+        return arrayList;
     }
 }

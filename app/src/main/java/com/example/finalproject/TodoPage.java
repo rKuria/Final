@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,7 +20,10 @@ public class TodoPage extends AppCompatActivity {
 
      private ListView listView;
 
-     private Button list_button;
+     private EditText add_item;
+
+     private Button list_button, next;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +32,32 @@ public class TodoPage extends AppCompatActivity {
 
         listView = findViewById(R.id.listview);
         list_button = findViewById(R.id.list_button);
+        add_item = findViewById(R.id.add_item);
 
-        list_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addItem(view);
+        if(list_button != null) {
 
-            }
-        });
+            list_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addItem(view);
 
-        items = new ArrayList<>();
-        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listView.setAdapter(itemsAdapter);
-        setUpListViewListener();
+                }
+            });
+
+            items = new ArrayList<>();
+            itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+            listView.setAdapter(itemsAdapter);
+            setUpListViewListener();
+
+            next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    nextPage();
+                }
+            });
+        } else {
+            Toast.makeText(TodoPage.this, "Button not found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setUpListViewListener() {
@@ -48,15 +65,20 @@ public class TodoPage extends AppCompatActivity {
     }
 
     private void addItem(View view) {
-        EditText input = findViewById(R.id.add_item);
-        String itemText = input.getText().toString();
+        String item = add_item.getText().toString();
 
-        if(!(itemText.equals(" "))){
-            itemsAdapter.add(itemText);
-            input.setText(" ");
+
+        if(!(item.equals(" "))){
+            itemsAdapter.add(item);
+            add_item.setText(" ");
         }
         else{
             Toast.makeText(TodoPage.this, "No empty text", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void nextPage(){
+        Intent intent = new Intent(this, MedsPage.class);
+        startActivity(intent);
     }
 }

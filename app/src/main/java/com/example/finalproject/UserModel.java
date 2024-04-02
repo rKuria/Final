@@ -4,7 +4,7 @@ public class UserModel  {
 
     private int id;
     private String name;
-    private String email;
+    public String email;
     private String password;
 
     //constructor - called each time a new user signs up
@@ -17,7 +17,8 @@ public class UserModel  {
         this.password = password;
     }
 
-    public UserModel() {
+
+    public UserModel(String name, String email) {
     }
 
     //toString is needed to print values
